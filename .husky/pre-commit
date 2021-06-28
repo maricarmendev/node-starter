@@ -6,4 +6,4 @@ action="[Pre-Commit]"
 echo "$action start" \
 && npm test \
 && npm run prettier \
-&& echo "\n$action end"
+&& echo "\n$action end\n"
