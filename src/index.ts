@@ -1,14 +1,8 @@
-import { create } from 'domain';
 import express from 'express';
-import {
-  configureProjectToStart,
-  createEnvironmentesObject,
-} from './configure';
-
-import { hash10, compareHash } from './shared/helpers/encript';
+import { configureProjectToStart, getEnvs } from 'config';
 
 const app = express();
-const environments = createEnvironmentesObject();
+const environments = getEnvs();
 
 async function startServer() {
   app.listen(environments.PORT);

@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') >= 1) throw new Error('You must use NPM to install, not YARN')\"",
     "test": "echo \"Aun no hay test\"",
-    "build": "tsc --project ./",
+    "build": "tsc ",
     "dev": "nodemon ./src/index.ts",
     "prepare": "husky install",
-    "prettier":"prettier --config ./.prettierrc.json --check \"src/**/*.ts\""
+    "start": "NODE_PATH=./build node build",
+    "prettier": "prettier --config ./.prettierrc.json --check \"src/**/*.ts\""
   },
   "keywords": [],
   "author": "",

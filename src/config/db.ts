@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import { createEnvironmentesObject } from './environments';
+import { getEnvs } from './environments';
 
 type ConnectToMongo = (
   onCoonect: () => void,
@@ -8,7 +8,7 @@ type ConnectToMongo = (
   url?: string
 ) => void;
 
-const envs = createEnvironmentesObject();
+const envs = getEnvs();
 export const connectToMongo: ConnectToMongo = async (
   onConnect,
   onError,

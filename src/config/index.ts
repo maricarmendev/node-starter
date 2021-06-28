@@ -1,17 +1,10 @@
 export * from './environments';
 export * from './db';
-export * from './dataRequiredToFirstStart';
+export * from './prepareData';
 
-import {
-  configureEnvironments,
-  createEnvironmentesObject,
-} from './environments';
+import { configureEnvironments, getEnvs } from './environments';
 import { connectToMongo } from './db';
 import { errorMessage, okMessage } from 'shared';
-
-const envsAction = 'envs';
-const okEnvsConnect = () => okMessage(mongoAction);
-const errorEnvsConnect = () => errorMessage(mongoAction);
 
 const mongoAction = 'mongo';
 const okMongoConnect = () => okMessage(mongoAction);
@@ -24,8 +17,10 @@ export const configureProjectToStart: ConfigureProjectToStart = async (
   console.log('\n\n Configuring project to start server ...');
   try {
     await configureEnvironments();
-    const config = createEnvironmentesObject();
+
+    const config = getEnvs();
     await connectToMongo(okMongoConnect, errorMongoConnect, config.MONGO_URL);
+
     onComplete();
   } catch (error) {
     errorMessage('configure-app');

@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES5", // Versión especifica de javascript que el compilador escupirá
+    "target": "ESNext", // Versión especifica de javascript que el compilador escupirá
     "module": "CommonJS", // Nos permite usar el administrador de modulos en el código javascript compilado. CommonJs con modulos que nodejs admite
     "rootDir": "./src", // Especifica donde se encuentran los archivos de typescript dentro del proyecto
     "outDir": "./build", // Especifica donde se ubicará la salida del compilado
     "esModuleInterop": true, // Nos permite compilar modulos de es6 en modulos CommonJS
-    "strict": true, // habilita el modo estricto en la verificación de tipos
-    "baseUrl": "./src"
+    "strict": false, // habilita el modo estricto en la verificación de tipos
+    "baseUrl": "./src",
   },
   "ts-node": {
     "require": ["tsconfig-paths/register"] // para que ts-node acepte la base-url de la configuración de typescript
