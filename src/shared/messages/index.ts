@@ -1,1 +1,1 @@
-export * from "./stateActionMessage"
+export * from './stateActionMessage';

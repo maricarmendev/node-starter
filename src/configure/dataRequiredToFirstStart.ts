@@ -1,1 +1,1 @@
-export function generateData(){}
+export function generateData() {}

@@ -1,1 +1,1 @@
-export * from "./encript"
+export * from './encript';
