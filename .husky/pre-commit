@@ -1,4 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo "npx prettier --config ./.prettierrc.json --check \"src/**/*.ts\""
+action="[Pre-Commit]"
+
+echo "$action start" \
+&& npm test \
+&& npm run prettier \
+&& echo "$action end"
